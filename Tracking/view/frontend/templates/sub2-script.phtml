@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @var Sub2Config $block
+ */
+
+use Sub2\Tracking\Block\Sub2Config;
+
+?>
+<?php if ($block->getLicenseKey()) :?>
+<script type="text/javascript"
+        src="//cdn.sub2tech.com/CodeBase/LIVE/Min/sub2.js?LICENSEKEY=<?= $block->getLicenseKey() ?>&trackPage=Y"
+        async="true">
+</script>
+<script>
+    window.getCurrency = {
+        "getCurrencySymbol": "<?= /* @noEscape */  $block->getStoreCurrencySymbol(); ?>"
+    };
+    var __s2tQ = __s2tQ || [];
+</script>
+
+<div id="sub2-script"
+     data-is-enabled="<?= $block->isEnabled() ?>"
+     data-is-addtocart-enabled="<?= $block->isAddtocartEnabled() ?>"
+     data-is-emailcapture-enabled="<?= $block->isEmailCaptureEnabled() ?>"
+     data-mage-init='{"sub2Script":{"customerEmail": "<?= $block->getCustomerEmail() ?>",
+                                    "orderDetails": <?= json_encode($block->getOrderDetails()) ?>},
+                      "sub2AddToCart":{}}'>
+</div>
+<?php endif; ?>

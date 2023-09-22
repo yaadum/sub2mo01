@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block class="Sub2\Tracking\Block\Sub2Config" name="sub2-script"
+                   template="Sub2_Tracking::sub2-script.phtml" before="-" ifconfig="tracking/general/enabled"/>
+        </referenceContainer>
+    </body>
+</page>
